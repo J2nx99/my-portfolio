@@ -219,4 +219,14 @@ export const socialMedia = [
     img: "/link.svg",
     link: "https://www.linkedin.com/in/joshua-omilani-5723b6255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
+  // {
+  //   id: 4,
+  //   img: "/insta.svg",
+  //   link: "https://www.instagram.com/joshuaomilani/",
+  // },
+  {
+    id: 5,
+    img: "/wha.svg",
+    link: "https://wa.me/2349127956135",
+  },
 ];

@@ -1,21 +1,31 @@
+"use client"; // Essential for animated components
+
 import { cn } from "@/lib/utils";
 import React from "react";
 
 type SpotlightProps = {
   className?: string;
-  fill?: string;
+  fill?:
+    | `#${string}`
+    | `rgb(${string})`
+    | `rgba(${string})`
+    | "currentColor"
+    | "white"
+    | "black";
 };
 
-export const Spotlight = ({ className, fill }: SpotlightProps) => {
+export const Spotlight = ({ className, fill = "white" }: SpotlightProps) => {
   return (
     <svg
       className={cn(
-        "animate-spotlight pointer-events-none absolute z-[1]  h-[169%] w-[138%] lg:w-[84%] opacity-0",
+        "animate-spotlight pointer-events-none absolute z-[1] h-[169%] w-[138%] lg:w-[84%] opacity-0",
+        "will-change-transform", // Improves animation performance
         className
       )}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
+      aria-hidden="true" // Important for accessibility
     >
       <g filter="url(#filter)">
         <ellipse
@@ -24,9 +34,9 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
           rx="1924.71"
           ry="273.501"
           transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
-          fill={fill || "white"}
+          fill={fill}
           fillOpacity="0.21"
-        ></ellipse>
+        />
       </g>
       <defs>
         <filter
@@ -38,17 +48,17 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
             in2="BackgroundImageFix"
             result="shape"
-          ></feBlend>
+          />
           <feGaussianBlur
             stdDeviation="151"
             result="effect1_foregroundBlur_1065_8"
-          ></feGaussianBlur>
+          />
         </filter>
       </defs>
     </svg>
